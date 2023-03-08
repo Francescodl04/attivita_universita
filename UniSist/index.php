@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +13,7 @@
 </head>
 <body>
     <div class="container" id="header">
-        
+        <?php include("header.php")?>
     </div>
     <div class="container" id="main">
 
