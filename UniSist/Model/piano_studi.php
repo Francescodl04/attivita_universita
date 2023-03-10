@@ -24,9 +24,11 @@ class PianoStudi
         return $stmt;
     }
 
-    public function deletePianoStudi()
+    public function deletePianoStudi($codice)
     {
-
+        $query="DELETE FROM $this->table_name WHERE codice=$codice";
+        $stmt=$this->conn->query($query);
+        return $stmt;
     }
 
 }
