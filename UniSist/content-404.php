@@ -1,4 +1,4 @@
 <?php 
-echo "Silence is golden";
+echo "Contenuto 404";
 
 ?>

@@ -1,22 +1,16 @@
 <?php
-$page = $_GET['page'];
+$page = $_SERVER['REQUEST_URI'];
+
+
 switch ($page) {
-    case 0:
-        echo "login";
+    case '/attivita_universita/UniSist/index.php' && '/attivita_universita/UniSist/index.php/':
+        require __DIR__ . '/views/login.php';
         break;
-    case 1:
-        echo "attività didattiche";
-        break;
-    case 2:
-        echo "edit attività";
-        break;
-    case 3:
-        echo "unità formativa";
-        break;
-    case 4:
-        echo "edit unità";
+    case '/attivita_universita/UniSist/edit':
+        require __DIR__ . '/views/edit_attività.php';
         break;
     default:
         include("content-404.php");
+        break;
 }
 ?>
