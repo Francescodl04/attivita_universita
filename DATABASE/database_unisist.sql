@@ -37,7 +37,7 @@ semestre int,
 descrizione_semestre nvarchar(50),
 anno1 int,
 anno2 int
-)
+);
 
 
 create table medicina.formativa_didattica (

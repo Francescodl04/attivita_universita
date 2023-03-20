@@ -4,8 +4,8 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET");
 header("Content-Type: application/json; charset=UTF-8");
 
-include_once dirname(__FILE__) . '/../../Connect/connect.php';
-include_once dirname(__FILE__) . '/../../Model/piano_studi.php';
+include_once dirname(__FILE__) . '/../../CONNECT/connect.php';
+include_once dirname(__FILE__) . '/../../MODEL/piano_studi.php';
 
 $database = new Database();
 $db_connection = $database->connect();

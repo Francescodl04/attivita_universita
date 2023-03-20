@@ -13,24 +13,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Registro Universitario</title>
 </head>
 
 <body>
-    <div class="container" id="header">
-        <?php
-        include("header.php");
-        ?>
-    </div>
-    <div class="container" id="main">
-        <?php
-        include("main.php");
-        ?>
-    </div>
-    <div class="container" id="footer">
-        <?php
-        include("footer.php");
-        ?>
+    <div class="container-fluid">
+        <div class="row" id="header">
+            <?php
+            include("header.php");
+            ?>
+        </div>
+        <div class="row" id="main">
+            <?php
+            include("main.php");
+            ?>
+        </div>
+        <div class="row fixed-bottom" id="footer">
+            <?php
+            include("footer.php");
+            ?>
+        </div>
     </div>
 </body>
 

@@ -4,6 +4,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
 
+include_once dirname(__FILE__) . '/../../CONNECT/connect.php';
+include_once dirname(__FILE__) . '/../../MODEL/piano_studi.php';
+
 $database = new Database();
 $db_connection = $database->connect();
 
