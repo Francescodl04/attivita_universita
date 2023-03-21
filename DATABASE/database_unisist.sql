@@ -45,6 +45,14 @@ create table medicina.formativa_didattica (
  didattica nvarchar(6)
 );
 
+create table medicina.utente(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nome varchar(30) NOT NULL,
+    cognome varchar(30) NOT NULL,
+    email varchar(100) NOT NULL,
+    `password` varchar(30) NOT NULL
+);
+
 -- impostazione dei vincoli primary key
 
 /*

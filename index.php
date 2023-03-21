@@ -14,7 +14,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Registro Universitario</title>
+    <title>UniSist - Il Registro Universitario</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
             include("main.php");
             ?>
         </div>
-        <div class="row fixed-bottom" id="footer">
+        <div class="row" id="footer">
             <?php
             include("footer.php");
             ?>

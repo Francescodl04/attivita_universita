@@ -17,6 +17,13 @@ class PianoStudi
         return $stmt;
     }
 
+    public function getArchivePianoStudiOnBreakpoints($start_value, $end_value)
+    {
+        $query = "SELECT * FROM $this->table_name WHERE codice BETWEEN $start_value AND $end_value";
+        $stmt = $this->conn->query($query);
+        return $stmt;
+    }
+
     public function createPianoStudi($codice, $nome, $cfu, $settore, $n_settore, $TAF_ambito, $ore_lezione, $ore_laboratorio, $ore_tirocinio, $tipo_insegnamento, $semestre, $descrizione_semestre, $anno1, $anno2)
     {
         $query = "INSERT INTO $this->table_name 
