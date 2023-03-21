@@ -53,6 +53,16 @@ create table medicina.utente(
     `password` varchar(30) NOT NULL
 );
 
+create table medicina.ruolo(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    nome_ruolo varchar(30) NOT NULL
+)
+
+create table medicina.utente_ruolo(
+    id_utente int,
+    id_ruolo int
+)
+
 -- impostazione dei vincoli primary key
 
 /*
@@ -71,6 +81,10 @@ alter table medicina.formativa_didattica ADD CONSTRAINT PK_formativa_didattica P
 alter table medicina.formativa_didattica 
 ADD FOREIGN KEY (formativa) REFERENCES medicina.piano_di_studi(codice),
 ADD FOREIGN KEY (didattica) REFERENCES medicina.piano_di_studi(codice);
+
+alter table medicina.utente_ruolo
+ADD FOREIGN KEY (id_utente) REFERENCES medicina.utente(id),
+ADD FOREIGN KEY (id_ruolo) REFERENCES medicina.ruolo(id);
 
 select nome ,TAF_Ambito, settore  from medicina.piano_di_studi pds
 where TAF_Ambito like 'lingua%';

@@ -12,14 +12,29 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="?page=piani_studio">Piani di studio</a>
+          <a class="nav-link active" href="?page=homepage">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="?page=piani_studio">Attività formative</a>
+        <?php
+        if(true)
+        {
+          print("<li class=\"nav-item dropdown\">
+          <a class=\"nav-link dropdown-toggle\" href=\"\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+            Piani di studio
+          </a>
+          <ul class=\"dropdown-menu\">
+            <li><a class=\"dropdown-item\" href=\"?page=piani_studio\">Visualizza e modifica</a></li>
+            <li><a class=\"dropdown-item\" href=\"?page=new_item\">Aggiungi</a></li>
+          </ul>
+        </li>
+        <li class=\"nav-item\">
+          <a class=\"nav-link\" href=\"?page=piani_studio\">Attività formative</a>
         </li>
         <li>
-          <a class="d-flex justify-content-end btn btn-primary" href="?page=login" role="button">Accedi</a>
-        </li>
+          
+        </li>");
+        }
+        
+        ?>
     </div>
   </div>
 </nav>
