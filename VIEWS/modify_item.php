@@ -15,6 +15,31 @@ $i = $_GET['id'];
             Modifica i campi all'interno delle apposite caselle e premi conferma
         </p>
     </div>
+    <?php
+    echo $_SESSION['modify'];
+    $result = json_decode($_SESSION['modify']);
+    $text = "";
+    $alert_type = "";
+    if (isset($result['Update'])) {
+        switch ($result['Update']) {
+            case 'Done':
+                $text = "Modifica effettuata con successo!";
+                $alert_type = "success";
+                break;
+            case 'Error':
+                $text = "Si è verificato un errore nella modifica...";
+                $alert_type = "success";
+                break;
+
+        }
+        print(
+            "<div class=\"row mx-5 my-1 alert alert-dismissible alert-$alert_type \" role=\"alert\">
+            $text
+            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
+            </div>"
+        );
+    }
+    ?>
     <form action="HANDLERS/modify_item.php" method="POST">
         <div class="row my-3 px-4">
             <div class="input-group py-2">

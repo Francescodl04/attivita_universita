@@ -41,10 +41,10 @@ class PianoStudi
 
     public function updatePianoStudi($codice, $nome, $cfu, $settore, $n_settore, $TAF_ambito, $ore_lezione, $ore_laboratorio, $ore_tirocinio, $tipo_insegnamento, $semestre, $descrizione_semestre, $anno1, $anno2)
     {
-        $query = "UPDATE $this->table_name 
-        WHERE codice=$codice 
-        SET nome=$nome, cfu=$cfu, settore=$settore, n_settore= $n_settore, TAF_ambito=$TAF_ambito, ore_lezione=$ore_lezione, ore_laboratorio=$ore_laboratorio, 
-        ore_tirocinio=$ore_tirocinio, tipo_insegnamento= $tipo_insegnamento, semetre=$semestre, descrizione_semestre=$descrizione_semestre, anno1= $anno1, anno2=$anno2";
+        $query = sprintf("UPDATE $this->table_name 
+        SET nome='$nome', CFU='$cfu', settore='$settore', n_settore= '$n_settore', TAF_Ambito='%s', ore_lezione='$ore_lezione', ore_laboratorio='$ore_laboratorio', 
+        ore_tirocinio='$ore_tirocinio', tipo_insegnamento = '$tipo_insegnamento', semestre='$semestre', descrizione_semestre='$descrizione_semestre', anno1= '$anno1', anno2='$anno2'
+        WHERE codice='$codice' ", $this->conn->real_escape_string($TAF_ambito));
         $stmt = $this->conn->query($query);
         return $stmt;
     }

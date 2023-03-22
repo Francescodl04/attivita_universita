@@ -1,7 +1,3 @@
-<?php
-
-?>
-
 <div class="container-fluid">
     <div class="row pt-3 px-5">
         <form class="d-flex justify-content-right" role="search">
@@ -12,6 +8,7 @@
             Verranno visualizzati 10 elementi per pagina.
         </p>
     </div>
+
     <div class="row">
         <div class="table-responsive-xl p-5">
             <table class="table table-striped">

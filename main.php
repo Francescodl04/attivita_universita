@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-$_SESSION["key"]="ok";
+
+$_SESSION['modify'];
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];

@@ -10,9 +10,11 @@ class Utente
         $this->conn = $db;
     }
 
-    public function login()
+    public function login($email, $password)
     {
-        
+        $query = "SELECT email, password WHERE email=$email AND password=$password";
+        $stmt = $this->conn->query($query);
+        return $stmt;
     }
 }
 

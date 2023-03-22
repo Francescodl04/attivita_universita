@@ -19,17 +19,30 @@ $new_data = array(
 
 $json = json_encode($new_data);
 
-$url="API/piano_studi/updatePianoStudi.php";
+$url = "http://localhost/attivita_universita/API/piano_studi/updatePianoStudi.php";
 
-$curl = curl_init($url);
-curl_setopt($curl, CURLOPT_PUT, $json);
-curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$ch = curl_init($url);
 
-$result = curl_exec($curl);
 
-curl_close($curl);
+curl_setopt_array(
+    $ch,
+    array(
+        CURLOPT_URL => $url,
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => array(
+            'Content-Type: application/json',
+        ),
+        CURLOPT_POSTFIELDS => $json,
+    )
+);
 
-echo $result;
+$result = curl_exec($ch);
+
+curl_close($ch);
+
+$_SESSION['modify'] = $result;
+
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 ?>
