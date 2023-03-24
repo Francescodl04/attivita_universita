@@ -1,8 +1,12 @@
 <?php
 
-session_start();
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * Con questo file si gestisce il routing fra le varie pagine che compongono il software
+ **/
 
-$_SESSION['modify'];
+
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];

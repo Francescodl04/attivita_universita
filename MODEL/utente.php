@@ -12,7 +12,7 @@ class Utente
 
     public function login($email, $password)
     {
-        $query = "SELECT email, password WHERE email=$email AND password=$password";
+        $query = "SELECT email, `password` FROM $this->table_name WHERE email='$email' AND `password`='$password'";
         $stmt = $this->conn->query($query);
         return $stmt;
     }

@@ -6,14 +6,14 @@
         <div class="col-3">
 
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
             <h3>
                 Login
             </h3>
             <p>
                 Inserisci qui le tue credenziali per accedere a UniSist, il registro universitario...
             </p>
-            <form action="API/utente/loginHandler.php" method="POST">
+            <form action="HANDLERS/login.php" method="POST">
                 <div class="mb-3">
                     <label for="usernameEmailField" class="form-label">Indirizzo e-mail</label>
                     <input type="email" name="email" class="form-control" id="usernameEmailField"
@@ -29,7 +29,7 @@
             </form>
         </div>
         <div class="col-3">
-
+            
         </div>
     </div>
 </div>
