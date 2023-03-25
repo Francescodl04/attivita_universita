@@ -6,31 +6,36 @@
  * Con questo file si gestisce il routing fra le varie pagine che compongono il software
  **/
 
-
-
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
     switch ($page) {
         case 'homepage':
-            include('VIEWS/homepage.php');
+            include_once('VIEWS/homepage.php');
             break;
         case 'login':
             include_once('VIEWS/login.php');
             break;
-        case 'piani_studio':
-            require __DIR__ . '/VIEWS/piani_studio.php';
+        case 'reserved_area':
+            include_once('VIEWS/reserved_area.php');
             break;
-        case 'new_item':
-            require __DIR__ . '/VIEWS/new_item.php';
+        case 'attivita_formative':
+            include_once('VIEWS/attivita_formative.php');
             break;
-        case 'modify_item':
-            require __DIR__ . '/VIEWS/modify_item.php';
+        case 'new_attivita_formativa':
+            include_once('VIEWS/new_attivita_formativa.php');
+            break;
+        case 'modify_attivita_formativa':
+            include_once('VIEWS/modify_attivita_formativa.php');
             break;
         default:
-            include(__DIR__ . "/VIEWS/content-404.php");
+            include_once( "VIEWS/content-404.php");
             break;
     }
 } else {
-    include('VIEWS/homepage.php');
+    if (isset($_SESSION['login'])) {
+        include_once("VIEWS/reserved_area.php");
+    } else {
+        include_once('VIEWS/homepage.php');
+    }
 }
 ?>

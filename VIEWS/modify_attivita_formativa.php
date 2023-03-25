@@ -16,12 +16,10 @@ $i = $_GET['id'];
         </p>
     </div>
     <?php
-    echo $_SESSION['modify'];
-    $result = json_decode($_SESSION['modify']);
-    $text = "";
-    $alert_type = "";
-    if (isset($result['Update'])) {
-        switch ($result['Update']) {
+    if (isset($_SESSION['modify'])) {
+        $text = "";
+        $alert_type = "";
+        switch ($_SESSION['modify']) {
             case 'Done':
                 $text = "Modifica effettuata con successo!";
                 $alert_type = "success";
@@ -30,29 +28,29 @@ $i = $_GET['id'];
                 $text = "Si è verificato un errore nella modifica...";
                 $alert_type = "success";
                 break;
-
         }
         print(
-            "<div class=\"row mx-5 my-1 alert alert-dismissible alert-$alert_type \" role=\"alert\">
+            "<div class=\"row mx-4 my-1 alert alert-dismissible alert-$alert_type \" role=\"alert\">
             $text
             <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
             </div>"
         );
+        unset($_SESSION['modify']);
     }
     ?>
     <form action="HANDLERS/modify_item.php" method="POST">
         <div class="row my-3 px-4">
             <div class="input-group py-2">
                 <input name="codice" type="text" class="form-control" placeholder="Codice"
-                    value="<?php print($data[$i]->codice) ?>" aria-label="Inserimento codice" >
+                    value="<?php print($data[$i]->codice) ?>" aria-label="Inserimento codice" disabled>
             </div>
             <div class="input-group py-2">
                 <input name="nome" type="text" class="form-control" placeholder="Nome"
-                    value="<?php print($data[$i]->nome) ?>" aria-label="Inserimento nome">
+                    value="<?php print($data[$i]->nome) ?>" aria-label="Inserimento nome" required>
             </div>
             <div class="input-group py-2">
                 <input name="CFU" type="text" class="form-control" placeholder="CFU"
-                    value="<?php print($data[$i]->CFU) ?>" aria-label="Inserimento CFU">
+                    value="<?php print($data[$i]->CFU) ?>" aria-label="Inserimento CFU" required>
             </div>
             <div class="input-group py-2">
                 <input name="settore" type="text" class="form-control" placeholder="Settore"
@@ -81,16 +79,16 @@ $i = $_GET['id'];
             <div class="input-group py-2">
                 <input name="tipo_insegnamento" type="text" class="form-control" placeholder="Tipo di insegnamento"
                     value="<?php print($data[$i]->tipo_insegnamento) ?>"
-                    aria-label="Inserimento del tipo di insegnamento">
+                    aria-label="Inserimento del tipo di insegnamento" required>
             </div>
             <div class="input-group py-2">
                 <input name="semestre" type="text" class="form-control" placeholder="Semestre"
-                    value="<?php print($data[$i]->semestre) ?>" aria-label="Inserimento del semestre">
+                    value="<?php print($data[$i]->semestre) ?>" aria-label="Inserimento del semestre" required>
             </div>
             <div class="input-group py-2">
                 <input name="descrizione_semestre" type="text" class="form-control"
                     placeholder="Descrizione del semestre" value="<?php print($data[$i]->descrizione_semestre) ?>"
-                    aria-label="Inserimento della descrizione del semestre">
+                    aria-label="Inserimento della descrizione del semestre" required>
             </div>
             <div class="input-group py-2">
                 <input name="anno1" type="text" class="form-control" placeholder="Anno 1"

@@ -41,7 +41,9 @@ $result = curl_exec($ch);
 
 curl_close($ch);
 
-$_SESSION['modify'] = $result;
+session_start();
+
+$_SESSION['modify'] = json_decode($result)->Update;
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 

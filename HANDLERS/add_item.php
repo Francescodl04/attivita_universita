@@ -19,17 +19,32 @@ $new_item = array(
 
 $json = json_encode($new_item);
 
-$url="API/piano_studi/addPianoStudi.php";
+$url = "http://localhost/attivita_universita/API/piano_studi/createPianoStudi.php";
 
-$curl = curl_init($url);
-curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
-curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$ch = curl_init($url);
 
-$result = curl_exec($curl);
 
-curl_close($curl);
+curl_setopt_array(
+    $ch,
+    array(
+        CURLOPT_URL => $url,
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => array(
+            'Content-Type: application/json',
+        ),
+        CURLOPT_POSTFIELDS => $json,
+    )
+);
 
-echo $result;
+$result = curl_exec($ch);
+
+curl_close($ch);
+
+session_start();
+
+$_SESSION['creation'] = json_decode($result)->Creation;
+
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 ?>

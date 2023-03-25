@@ -32,7 +32,7 @@ session_start();
 
 $_SESSION['login'] = true;
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: http://localhost/attivita_universita/?page=reserved_area');
 
 
 
