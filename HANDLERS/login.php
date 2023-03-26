@@ -30,11 +30,16 @@ curl_close($ch);
 
 session_start();
 
-$_SESSION['login'] = true;
-
-header('Location: http://localhost/attivita_universita/?page=reserved_area');
-
-
+switch (json_decode($result)->Login) {
+    case "Done":
+        $_SESSION['login'] = true;
+        header('Location: http://localhost/attivita_universita/?page=reserved_area');
+        break;
+    case "Failed":
+        $_SESSION['login'] = false;
+        header('Location:' . $_SERVER['HTTP_REFERER']);
+        break;
+}
 
 
 ?>

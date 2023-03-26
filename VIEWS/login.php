@@ -3,16 +3,22 @@
 ?>
 <div class="container-fluid ">
     <div class="row mx-5 my-2 p-5 ">
-        <div class="col-3">
+        <div class="col-2">
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <h3>
                 Login
             </h3>
             <p>
                 Inserisci qui le tue credenziali per accedere a UniSist, il registro universitario...
             </p>
+            <?php if (isset($_SESSION['login']) && $_SESSION['login'] == false): ?>
+                <div class="row alert alert-danger" role="alert">
+                    Login fallito: l'indirizzo email o la password non sono corretti. Riprovare...
+                </div>
+            <?php endif; ?>
+            <?php unset($_SESSION['login']); ?>
             <form action="HANDLERS/login.php" method="POST">
                 <div class="mb-3">
                     <label for="usernameEmailField" class="form-label">Indirizzo e-mail</label>
@@ -28,7 +34,7 @@
                 <input class="btn btn-primary" type="submit" value="Accedi">
             </form>
         </div>
-        <div class="col-3">
+        <div class="col-2">
 
         </div>
     </div>

@@ -14,12 +14,13 @@ $data = json_decode(file_get_contents("php://input"));
 
 if (!empty($data)) {
     $utente = new Utente($db_connection);
-    if ($utente->login($data->email, $data->password)) {
+    $stmt = $utente->login($data->email, $data->password);
+    if ($stmt) {
         http_response_code(201);
         echo json_encode(array("Login" => "Done"));
     } else {
         http_response_code(503);
-        echo json_encode(array("Login" => 'Error'));
+        echo json_encode(array("Login" => 'Failed'));
     }
 
 } else {

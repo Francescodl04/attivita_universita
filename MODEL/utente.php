@@ -14,6 +14,9 @@ class Utente
     {
         $query = "SELECT email, `password` FROM $this->table_name WHERE email='$email' AND `password`='$password'";
         $stmt = $this->conn->query($query);
+        if (mysqli_num_rows($stmt) == 0) {
+            return false;
+        }
         return $stmt;
     }
 }

@@ -16,7 +16,7 @@ $i = $_GET['id'];
         </p>
     </div>
     <?php
-    if (isset($_SESSION['modify'])) {
+    if (isset($_SESSION['modify'])):
         $text = "";
         $alert_type = "";
         switch ($_SESSION['modify']) {
@@ -26,18 +26,16 @@ $i = $_GET['id'];
                 break;
             case 'Error':
                 $text = "Si è verificato un errore nella modifica...";
-                $alert_type = "success";
+                $alert_type = "danger";
                 break;
         }
-        print(
-            "<div class=\"row mx-4 my-1 alert alert-dismissible alert-$alert_type \" role=\"alert\">
-            $text
-            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>
-            </div>"
-        );
         unset($_SESSION['modify']);
-    }
-    ?>
+        ?>
+        <div class="row mx-4 my-1 alert alert-dismissible alert-<?php echo $alert_type; ?>" role="alert">
+            <?php echo $text; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
     <form action="HANDLERS/modify_item.php" method="POST">
         <div class="row my-3 px-4">
             <div class="input-group py-2">
