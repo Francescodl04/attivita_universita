@@ -8,28 +8,36 @@
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
-    switch ($page) {
-        case 'homepage':
-            include_once('VIEWS/homepage.php');
-            break;
-        case 'login':
-            include_once('VIEWS/login.php');
-            break;
-        case 'reserved_area':
-            include_once('VIEWS/reserved_area.php');
-            break;
-        case 'attivita_formative':
-            include_once('VIEWS/attivita_formative.php');
-            break;
-        case 'new_attivita_formativa':
-            include_once('VIEWS/new_attivita_formativa.php');
-            break;
-        case 'modify_attivita_formativa':
-            include_once('VIEWS/modify_attivita_formativa.php');
-            break;
-        default:
-            include_once( "VIEWS/content-404.php");
-            break;
+    if (isset($_SESSION['login'])) {
+        switch ($page) {
+            case 'reserved_area':
+                include_once('VIEWS/reserved_area.php');
+                break;
+            case 'attivita_formative':
+                include_once('VIEWS/attivita_formative.php');
+                break;
+            case 'new_attivita_formativa':
+                include_once('VIEWS/new_attivita_formativa.php');
+                break;
+            case 'modify_attivita_formativa':
+                include_once('VIEWS/modify_attivita_formativa.php');
+                break;
+            default:
+                include_once("VIEWS/content-404.php");
+                break;
+        }
+    } else {
+        switch ($page) {
+            case 'homepage':
+                include_once('VIEWS/homepage.php');
+                break;
+            case 'login':
+                include_once('VIEWS/login.php');
+                break;
+            default:
+                include_once("VIEWS/content-404.php");
+                break;
+        }
     }
 } else {
     if (isset($_SESSION['login'])) {

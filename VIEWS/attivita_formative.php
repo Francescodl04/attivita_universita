@@ -22,8 +22,29 @@ if (isset($_GET['n_pagination'])) {
             Verranno visualizzati 10 elementi per pagina.
         </p>
     </div>
+    <?php
+    if (isset($_SESSION['delete'])):
+        $text = "";
+        $alert_type = "";
+        switch ($_SESSION['delete']) {
+            case 'Done':
+                $text = "Eliminazione effettuata con successo!";
+                $alert_type = "success";
+                break;
+            case 'Error':
+                $text = "Si è verificato un errore nell'eliminazione...";
+                $alert_type = "danger";
+                break;
+        }
+        unset($_SESSION['delete']);
+        ?>
+        <div class="row mx-4 my-1 alert alert-dismissible alert-<?php echo $alert_type; ?>" role="alert">
+            <?php echo $text; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
     <div class="row">
-        <div class="table-responsive-xl p-5">
+        <div class="table-responsive-xxl p-5">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -89,8 +110,9 @@ if (isset($_GET['n_pagination'])) {
                                 <?php echo $data[$i]->anno2; ?>
                             </td>
                             <td>
-                                <button name="deleteButton" class="btn btn-danger" type="submit" data-bs-toggle="modal"
-                                    data-bs-target="#deleteModal" value="<?php echo $data[$i]->codice; ?> ">
+                                <button id="deleteButton" class="btn btn-danger" type="submit" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal"
+                                    onclick="deleteButtonHandler(<?php echo $data[$i]->codice; ?>);">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-trash3" viewBox="0 0 16 16">
                                         <path
@@ -117,8 +139,8 @@ if (isset($_GET['n_pagination'])) {
         </div>
     </div>
     <div class="row">
-        <nav class="d-flex justify-content-center" aria-label="table_pagination">
-            <ul class="pagination">
+        <nav aria-label="table_pagination">
+            <ul class="pagination d-flex justify-content-center flex-wrap">
                 <?php
                 $disabled;
                 if ($n_pagination == 1) {
@@ -162,9 +184,27 @@ if (isset($_GET['n_pagination'])) {
                 <p>Sei veramente sicuro di voler eliminare questa attività formativa?</p>
             </div>
             <div class="modal-footer">
-                <a type="button" class="btn btn-secondary" href="HANDLERS/delete_item.php?id=">Sì</a>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                <form action="HANDLERS/delete_item.php" method="POST">
+                    <button id="deletionConfirmButton" name="codice" type="submit" class="btn btn-secondary" value=""
+                        onclick="deleteConfirmation();">Sì</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+
+    var deleteCode;
+
+    function deleteButtonHandler(deleteCode) {
+        this.deleteCode = deleteCode;
+    }
+
+    function deleteConfirmation() {
+        document.getElementById("deletionConfirmButton").value = this.deleteCode;
+    }
+
+</script>
