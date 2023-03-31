@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * Pagina per la modifica di un'attività formativa
+ **/
+
 $response = file_get_contents("http://localhost/attivita_universita/API/piano_studi/getArchivePianoStudi.php");
 $data = json_decode($response);
 $i = $_GET['id'];

@@ -8,7 +8,7 @@
 
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
-    if (isset($_SESSION['login'])) {
+    if (isset($_SESSION['login'])) { //Gestisco le pagine che possono essere accessibili solamente con il login
         switch ($page) {
             case 'reserved_area':
                 include_once('VIEWS/reserved_area.php');
@@ -27,7 +27,7 @@ if (isset($_GET['page'])) {
                 break;
         }
     } else {
-        switch ($page) {
+        switch ($page) { //Gestisco le pagine che possono essere accessibili senza login effettuato
             case 'homepage':
                 include_once('VIEWS/homepage.php');
                 break;
@@ -39,7 +39,7 @@ if (isset($_GET['page'])) {
                 break;
         }
     }
-} else {
+} else { //Gestisco le pagine che vengono visualizzate senza l'utilizzo dell'uso della query "page=nome pagina"
     if (isset($_SESSION['login'])) {
         include_once("VIEWS/reserved_area.php");
     } else {

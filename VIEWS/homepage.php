@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * Pagina per la visualizzazione dell'homepage, prima dell'accesso effettivo alla piattaforma del registro universitario
+ **/
+
 ?>
 
 

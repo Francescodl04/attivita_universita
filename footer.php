@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * File per la gestione della parte inferiore delle pagine (footer)
+ **/
+
 ?>
 
 <footer class=" footer sticky-bottom py-3 my-4">

@@ -1,3 +1,14 @@
+
+<?php
+
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * File che contiene la definizione della parte superiore di pagina (header)
+ **/
+
+?>
+
 <nav class="navbar navbar-expand-md header_unisist" data-bs-theme="light">
   <div class="container-fluid">
     <?php

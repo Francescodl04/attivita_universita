@@ -1,3 +1,13 @@
+<?php
+
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * Pagina per l'inserimento di una nuova attività formativa
+ **/
+
+?>
+
 
 <div class="container-fluid my-3">
     <div class="row mx-3">

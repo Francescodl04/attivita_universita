@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * Con questo file si gestisce il routing fra le varie pagine che compongono il software
+ **/
+
 $new_item = array(
     "codice" => $_POST['codice'],
     "nome" => $_POST['nome'],

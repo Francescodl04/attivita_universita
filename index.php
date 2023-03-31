@@ -1,5 +1,14 @@
 <?php
+
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * File che viene aperto di default da parte del server che contiene il riferimento alle librerie di Bootstrap e 
+ * JQuery e la struttura HTML di base
+ **/
+
 session_start();
+
 ?>
 
 <html lang="it">

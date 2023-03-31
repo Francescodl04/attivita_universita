@@ -1,9 +1,15 @@
 <?php
 
+/**
+ * Francesco Di Lena, classe 5F
+ * Software di gestione di un registro universitario
+ * Pagina per la visualizzazione delle attività formative con relativo accesso alle funzioni di modifica e di eliminazione
+ **/
+
 $response = file_get_contents("http://localhost/attivita_universita/API/piano_studi/getArchivePianoStudi.php");
 $data = json_decode($response);
 $page_elements = 10;
-$n_pages = ceil(count($data) / $page_elements); //Arrotonda all'unità
+$n_pages = ceil(count($data) / $page_elements); //La funzione ceil() arrotonda all'unità
 if (isset($_GET['n_pagination'])) {
     $n_pagination = $_GET['n_pagination'];
 } else {
