@@ -1,5 +1,5 @@
 # UniSist - Software di gestione dei corsi di un'università
-Progetto scolastico in MySQL, PHP, HTML e Bootstrap per la gestione di corsi universitari.
+Progetto scolastico in MySQL, PHP, HTML e Bootstrap per la gestione di corsi universitari (non ancora completamente concluso)
 
 ## Configurazione di base
 
